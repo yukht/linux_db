@@ -12,7 +12,7 @@ fi
 for x in $(cat ${tables_filename}); do
 #  echo "${db_name}.$x";
   clickhouse-client -h 127.0.0.1 -u superuser --password mYpasswoRd3 \
-    --query="SHOW CREATE TABLE ${db_name}.$x;" >> ${tables_dir}/$x.sql
+    --query="SHOW CREATE TABLE ${db_name}.$x FORMAT TabSeparatedRaw;" >> ${tables_dir}/$x.sql
 done
 
 exit 0
